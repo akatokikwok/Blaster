@@ -5,6 +5,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/WidgetComponent.h"
+
 
 // Sets default values
 ABlasterCharacter::ABlasterCharacter()
@@ -27,6 +29,9 @@ ABlasterCharacter::ABlasterCharacter()
 
 	// 让人物在移动的时候， controller仍可以旋转朝向.
 	GetCharacterMovement()->bOrientRotationToMovement = true;
+
+	OverheadWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("OverheadWidget"));
+	OverheadWidget->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
